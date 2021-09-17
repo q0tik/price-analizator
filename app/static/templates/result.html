@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" type="text/css"/>
+</head>
+<body>
+	<header>
+		<div id="header-wrap">
+		<img id="logo" src="{{ url_for('static',filename='images/Unknown-1.jpeg') }}">
+		</div>
+	</header>
+
+	<article>
+		<h3>Стоимость: </h3>
+		<div class="container">
+			<div class="category">{{pred}} </div>
+		</div>
+	</article>
+	
+
+
+</body>
+</html>

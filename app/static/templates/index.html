@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" type="text/css"/>
+</head>
+<body>
+	<header>
+		<div id="header-wrap">
+		<img id="logo" src="{{ url_for('static',filename='images/Unknown-1.jpeg') }}">
+		</div>
+	</header>
+
+	<article>
+		<h2>Оценка стоимости</h2>
+		<form action="{{ url_for('prediction_auto')}}"method="post">
+			<div class="container">
+				<div class="text">автомобоиль:</div>
+				<div class="quest1">
+						
+						<select name="car[]">
+   						<option disabled>Выберите автомобиль</option>
+   	 					<option value="0.0">Smart</option>
+						<option value="1.0">Daewoo</option>
+						<option value="2.0">ТагАЗ</option>
+						<option value="3.0">GMC</option>
+						<option value="4.0">BAIC</option>
+						<option value="5.0">Subaru</option>
+						<option value="6.0">Honda</option>
+						<option value="7.0">Porsche</option>
+						<option value="8.0">Land</option>
+						<option value="9.0">Mitsubishi</option>
+						<option value="10.0">Hummer</option>
+						<option value="11.0">Haval</option>
+						<option value="12.0">Skoda</option>
+						<option value="13.0">Mazda</option>
+						<option value="14.0">Chrysler</option>
+						<option selected value="15.0">Kia</option>
+						<option value="16.0">Rolls-Royce</option>
+						<option value="17.0">MINI</option>
+						<option value="18.0">Renault</option>
+						<option value="19.0">Jaguar</option>
+						<option value="20.0">Opel</option>
+						<option value="21.0">Genesis</option>
+						<option value="22.0">Lifan</option>
+						<option value="23.0">Bentley</option>
+						<option value="24.0">ЗАЗ</option>
+						<option value="25.0">Cadillac</option>
+						<option value="26.0">Toyota</option>
+						<option value="27.0">Mercedes-Benz</option>
+						<option value="28.0">ГАЗ</option>
+						<option value="29.0">Chery</option>
+						<option value="30.0">SEAT</option>
+						<option value="31.0">Peugeot</option>
+						<option value="32.0">Dodge</option>
+						<option value="33.0">Lexus</option>
+						<option value="34.0">Geely</option>
+						<option value="35.0">Ravon</option>
+						<option value="36.0">BMW</option>
+						<option value="37.0">Volvo</option>
+						<option value="38.0">Great</option>
+						<option value="39.0">Acura</option>
+						<option value="40.0">Citroen</option>
+						<option value="41.0">Vortex</option>
+						<option value="42.0">DW</option>
+						<option value="43.0">Tesla</option>
+						<option value="44.0">DongFeng</option>
+						<option value="45.0">SsangYong</option>
+						<option value="46.0">Zotye</option>
+						<option value="47.0">Datsun</option>
+						<option value="48.0">LADA</option>
+						<option value="49.0">Volkswagen</option>
+						<option value="50.0">Chevrolet</option>
+						<option value="51.0">Nissan</option>
+						<option value="52.0">Suzuki</option>
+						<option value="53.0">Hawtai</option>
+						<option value="54.0">Audi</option>
+						<option value="55.0">Hyundai</option>
+						<option value="56.0">Jeep</option>
+						<option value="57.0">УАЗ</option>
+						<option value="58.0">Infiniti</option>
+						<option value="59.0">Fiat</option>
+						<option value="60.0">Changan</option>
+						<option value="61.0">Ford</option>
+  	 					</select>
+
+						<select name="year[]">
+   						<option disabled>Выберите автомобиль</option>
+						<option value="1990.0">1990</option>
+						<option value="1991.0">1991</option>
+						<option value="1992.0">1992</option>
+						<option value="1993.0">1993</option>
+						<option value="1994.0">1994</option>
+						<option value="1995.0">1995</option>
+						<option value="1996.0">1996</option>
+						<option value="1997.0">1997</option>
+						<option value="1998.0">1998</option>
+						<option value="1999.0">1999</option>
+						<option value="2000.0">2000</option>
+						<option value="2001.0">2001</option>
+						<option value="2002.0">2002</option>
+						<option value="2003.0">2003</option>
+						<option value="2004.0">2004</option>
+						<option value="2005.0">2005</option>
+						<option value="2006.0">2006</option>
+						<option value="2007.0">2007</option>
+						<option value="2008.0">2008</option>
+						<option value="2009.0">2009</option>
+						<option value="2010.0">2010</option>
+						<option value="2011.0">2011</option>
+						<option value="2012.0">2012</option>
+						<option value="2013.0">2013</option>
+						<option value="2014.0">2014</option>
+						<option value="2015.0">2015</option>
+						<option value="2016.0">2016</option>
+						<option value="2017.0">2017</option>
+						<option value="2018.0">2018</option>
+						<option value="2019.0">2019</option>
+						<option value="2020.0">2020</option>
+						<option value="2021.0">2021</option>
+						</select>
+						<input type="number" name="millerage" placeholder="пробег" step="any" required>
+						<input type="number" name="4" placeholder="объем двигателя (через точку) (если электромобиль - 0.0)" step="any" required>
+						<input type="number" name="5" placeholder="лошадиные силы" required>
+						<select name="fuel[]">
+							<option disabled>Выберите тип топлива</option>
+							<option value="0.0">Бензин</option>
+							<option value="1.0">Дизель</option>
+							<option value="2.0">Газ</option>
+							<option value="3.0">Гибрид</option>
+							<option value="4.0">Электро</option>
+						</select>
+
+						<select name="gearbox[]">
+							<option disabled>Выберите тип коробки</option>
+							<option value="0.0">вариатор</option>
+							<option value="1.0">автомат</option>
+							<option value="2.0">робот</option>
+							<option value="3.0">механика</option>
+						</select>
+
+						<select name="carbody[]">
+							<option disabled>Выберите тип кузова</option>
+							<option value="1.0">хэтчбек 5 дв.</option>
+							<option value="2.0">купе</option>
+							<option value="3.0">внедорожник 5 дв.</option>
+							<option value="4.0">компактвэн</option>
+							<option value="5.0">родстер</option>
+							<option value="6.0">пикап двойная кабина</option>
+							<option value="7.0">лифтбек</option>
+							<option value="8.0">пикап полуторная кабина</option>
+							<option value="9.0">фургон</option>
+							<option value="10.0">внедорожник 3 дв.</option>
+							<option value="11.0">хэтчбек 3 дв.</option>
+							<option value="12.0">внедорожник открытый</option>
+							<option value="13.0">купе-хардтоп</option>
+							<option value="14.0">кабриолет</option>
+							<option value="15.0">седан</option>
+							<option value="16.0">универсал 5 дв.</option>
+							<option value="17.0">минивэн</option>
+						</select>
+
+						<select name="city[]">
+							<option disabled>Выберите город</option>
+							<option value="1.0">Таганрог</option>
+							<option value="2.0">Пенза</option>
+							<option value="3.0">Курск</option>
+							<option value="4.0">Адлер</option>
+							<option value="5.0">Санкт-Петербург</option>
+							<option value="6.0">Йошкар-Ола</option>
+							<option value="7.0">Кропоткин</option>
+							<option value="8.0">Бахчисарай</option>
+							<option value="9.0">Дубовое</option>
+							<option value="10.0">Горячеводский</option>
+							<option value="11.0">Тверь</option>
+							<option value="12.0">Пойковский</option>
+							<option value="13.0">Анапа</option>
+							<option value="14.0">Химки</option>
+							<option value="15.0">Саратов</option>
+							<option value="16.0">Гулькевичи</option>
+							<option value="17.0">Нижний Тагил</option>
+							<option value="18.0">Ижевск</option>
+							<option value="19.0">Новочеркасск</option>
+							<option value="20.0">NODATA</option>
+							<option value="21.0">Липецк</option>
+							<option value="22.0">Альметьевск</option>
+							<option value="23.0">Ярославль</option>
+							<option value="24.0">Смоленск</option>
+							<option value="25.0">Балаково</option>
+							<option value="26.0">Магнитогорск</option>
+							<option value="27.0">Новосибирск</option>
+							<option value="28.0">Супонево</option>
+							<option value="29.0">Омск</option>
+							<option value="30.0">Чебоксары</option>
+							<option value="31.0">Иноземцево</option>
+							<option value="32.0">Бобров</option>
+							<option value="33.0">Саранск</option>
+							<option value="34.0">Псков</option>
+							<option value="35.0">Аксай</option>
+							<option value="36.0">Афонино</option>
+							<option value="37.0">Нижнекамск</option>
+							<option value="38.0">Республика Татарстан</option>
+							<option value="39.0">Ховрино</option>
+							<option value="40.0">Краснодар</option>
+							<option value="41.0">Свободный</option>
+							<option value="42.0">Волгодонск</option>
+							<option value="43.0">Видное</option>
+							<option value="44.0">Новочебоксарск</option>
+							<option value="45.0">Владикавказ</option>
+							<option value="46.0">Пригородный</option>
+							<option value="47.0">Тучково</option>
+							<option value="48.0">Волгоград</option>
+							<option value="49.0">Минеральные Воды</option>
+							<option value="50.0">Тахтамукай</option>
+							<option value="51.0">Вологда</option>
+							<option value="52.0">Московский</option>
+							<option value="53.0">Мурманск</option>
+							<option value="54.0">Севастополь</option>
+							<option value="55.0">Владивосток</option>
+							<option value="56.0">Буинск</option>
+							<option value="57.0">Кудрово</option>
+							<option value="58.0">Керчь</option>
+							<option value="59.0">Сочи</option>
+							<option value="60.0">Тюмень</option>
+							<option value="61.0">Ульяновск</option>
+							<option value="62.0">Волжский</option>
+							<option value="63.0">Баймак</option>
+							<option value="64.0">Новоуральск</option>
+							<option value="65.0">Великий Новгород</option>
+							<option value="66.0">Красное Село</option>
+							<option value="67.0">Реутов</option>
+							<option value="68.0">Феодосия</option>
+							<option value="69.0">Шевырёвка</option>
+							<option value="70.0">Набережные Челны</option>
+							<option value="71.0">Архангельск</option>
+							<option value="72.0">Самара</option>
+							<option value="73.0">Ногинск</option>
+							<option value="74.0">Шахты</option>
+							<option value="75.0">Одинцово</option>
+							<option value="76.0">Хабаровск</option>
+							<option value="77.0">Заречье</option>
+							<option value="78.0">Киров</option>
+							<option value="79.0">Нижний Новгород</option>
+							<option value="80.0">Дзержинск</option>
+							<option value="81.0">Первое Мая</option>
+							<option value="82.0">Берёзовский</option>
+							<option value="83.0">Репное</option>
+							<option value="84.0">Брянск</option>
+							<option value="85.0">Энгельс</option>
+							<option value="86.0">Майкоп</option>
+							<option value="87.0">Владимир</option>
+							<option value="88.0">Челябинск</option>
+							<option value="89.0">Оренбург</option>
+							<option value="90.0">Минск</option>
+							<option value="91.0">Симферополь</option>
+							<option value="92.0">Подольск</option>
+							<option value="93.0">Темрюк</option>
+							<option value="94.0">Старый Оскол</option>
+							<option value="95.0">Ставрополь</option>
+							<option value="96.0">Обнинск</option>
+							<option value="97.0">Калуга</option>
+							<option value="98.0">Домодедово</option>
+							<option value="99.0">Кострома</option>
+							<option value="100.0">Иваново</option>
+							<option value="101.0">Балашиха</option>
+							<option value="102.0">Быково</option>
+							<option value="103.0">Тольятти</option>
+							<option value="104.0">Москва</option>
+							<option value="105.0">Уфа</option>
+							<option value="106.0">Златоуст</option>
+							<option value="107.0">Гаспра</option>
+							<option value="108.0">Грушевская</option>
+							<option value="109.0">Курган</option>
+							<option value="110.0">Волосово</option>
+							<option value="111.0">Ростов-на-Дону</option>
+							<option value="112.0">Лобня</option>
+							<option value="113.0">Рязань</option>
+							<option value="114.0">Екатеринбург</option>
+							<option value="115.0">Барнаул</option>
+							<option value="116.0">Воронеж</option>
+							<option value="117.0">Богданович</option>
+							<option value="118.0">Иркутск</option>
+							<option value="119.0">Тамбов</option>
+							<option value="120.0">Мытищи</option>
+							<option value="121.0">Пятигорск</option>
+							<option value="122.0">Пермь</option>
+							<option value="123.0">Белгород</option>
+							<option value="124.0">Красноярск</option>
+							<option value="125.0">Тула</option>
+							<option value="126.0">Юца</option>
+							<option value="127.0">Мирное</option>
+							<option value="128.0">Раздоры</option>
+							<option value="129.0">Новокузнецк</option>
+							<option value="130.0">Коломна</option>
+							<option value="131.0">Пушкино</option>
+							<option value="132.0">Казань</option>
+							<option value="133.0">Петрозаводск</option>
+							<option value="134.0">Орёл</option>
+						</select>
+
+						<select name="transmission[]">
+							<option disabled>Выберите тип трансмиссии</option>
+							<option value="0.0">полный</option>
+							<option value="1.0">передний</option>
+							<option value="2.0">задний</option>
+						</select>
+
+						<select name="color[]">
+							<option value="0.0">бежевый</option>
+							<option value="1.0">чёрный</option>
+							<option value="2.0">серебристый</option>
+							<option value="3.0">красный</option>
+							<option value="4.0">пурпурный</option>
+							<option value="5.0">коричневый</option>
+							<option value="6.0">зелёный</option>
+							<option value="7.0">жёлтый</option>
+							<option value="8.0">серый</option>
+							<option value="9.0">синий</option>
+							<option value="10.0">розовый</option>
+							<option value="11.0">белый</option>
+							<option value="12.0">оранжевый</option>
+							<option value="13.0">голубой</option>
+							<option value="14.0">фиолетовый</option>
+							<option value="15.0">золотистый</option>
+						</select>
+				</div>
+			</div>
+				<input type="submit">
+		</form>
+
+		<form action="{{ url_for('prediction_house')}}"method="post">
+			<div class="container">
+				<div class="text">недвижимость:</div>
+				<div class="quest1">
+						
+						<select name="wallsMaterial[]">
+   						<option disabled>Выберите материал здания</option>
+   						<option value="0.0">monolith</option>
+						<option value="1.0">panel</option>
+						<option value="2.0">None</option>
+						<option value="3.0">brick</option>
+						<option value="4.0">monolithBrick</option>
+						<option value="5.0">block</option>
+						<option value="6.0">wood</option>
+						<option value="7.0">stalin</option>
+						<option value="8.0">old</option>
+ 	 					</select>
+
+						<input type="number" name="floorNumber" placeholder="этаж квартиры" step="any" required>
+
+						<input type="number" name="floorTotal" placeholder="этажность дома" step="any" required>
+
+						<input type="number" name="totalArea" placeholder="площадь квартиры" step="any" required>
+
+						<input type="number" name="kitchenArea" placeholder="площадь кухни" step="any" required>
+
+						<input type="text" name="address" placeholder="Адрес (пример: Москва, Михайлова 34)" step="any" required>
+				</div>
+			</div>
+				<input type="submit">
+		</form>
+	</article>
+	
+
+
+</body>
+</html>
